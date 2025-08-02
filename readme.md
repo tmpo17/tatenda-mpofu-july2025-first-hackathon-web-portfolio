@@ -14,15 +14,16 @@ This website is was designed to showcase my projects (though very few), my skill
 ### Project Structure
 
 Tatenda Mpofu - 1st Hackathon 2025/
-│
-├── index.html         # Main HTML file for the portfolio website
-├── style.css          # CSS stylesheet for styling the website
-├── main.png           # Main profile or hero image (if present)
-├── readme.md          # Project documentation (this file)
+
+index.html         # Main HTML file for the portfolio website
+style.css          # CSS stylesheet for styling the website
+main.png           # Main profile or hero image (if present)
+readme.md          # Project documentation (this file)
 
 #### Contact
 
 tsmpofu17@gmail.com
+
 
 
 
