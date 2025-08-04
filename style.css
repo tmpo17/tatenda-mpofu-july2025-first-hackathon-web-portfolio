@@ -26,6 +26,7 @@
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  position: relative;
  }
 
  header.scrolled {
@@ -89,11 +90,16 @@
 
 .hamburger {
   display: none;
-  flex-direction: column;
   cursor: pointer;
   z-index: 1001;
-  padding: 10px;
-
+  position: absolute;    
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
 }
 
 .hamburger span {
@@ -119,23 +125,27 @@
 }
 
 .mobile-nav {
+  display: none;
+}
+
+#menu-toggle:checked ~ .hamburger + .mobile-nav {
   display: flex;
   flex-direction: column;
-  background: #000;
+  align-items: center;
+  background: #222;
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 70%;
   height: 100vh;
   padding: 100px 30px;
   text-align: right;
   z-index: 999;
-  backdrop-filter: blur(10px);
   transition: right 0.5s ease;
 }
 
 .mobile-nav.active {
-  right: 0;
+  display: flex; 
 }
 
 .mobile-nav a {
@@ -276,10 +286,98 @@
   justify-content: center;
 }
 
+.menu-toggle {
+  display: none;
+}
 
 
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
 
-/* Had to use CoPilot because my animations weren't working */
+  .hero {
+    min-height: unset !important;
+    padding: 40px 5% 20px;  
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    min-height: unset;     
+    padding: 30px 5% 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 90vw;
+    height: auto;
+    max-width: 300px;
+  }
+
+  .hero-text {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    z-index: 100;
+  }
+
+  .mobile-nav.active {
+    display: flex; 
+  }
+
+  .mobile-nav a {
+    padding: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: none;
+  }
+  nav {
+    display: flex;
+  }
+}
+
+/* Mobile nav did not go so well.*/
 @keyframes fadeInUp {
   0% {
     opacity: 0;
